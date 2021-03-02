@@ -8,7 +8,7 @@ const app = express();
 const corsOption = {
     origin: 'https://todo-jch.herokuapp.com/'
 }
-app.use(cors(corsOption));
+
 app.use(bodyParser.json())
 
 const db = require("./app/models");
