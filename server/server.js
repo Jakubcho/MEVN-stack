@@ -25,7 +25,7 @@ db.mongoose
         process.exit()
     })
 
-//app.use(serveStatic(__dirname + "/dist"));
+app.use(serveStatic(__dirname + "/dist"));
 
 require("./app/routes/routes.js")(app);
 
