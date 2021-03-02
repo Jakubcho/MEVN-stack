@@ -1,9 +1,8 @@
 <template>
     <div>
-        <div class="item">
-            <input type="text" placeholder="todo" v-model="newTitle">
-            <input type="text" placeholder="description todo" v-model="newDescription">
-            <button @click="addItem">Add item</button>
+        <div class="addTodo">
+            <input type="text" placeholder="Zadnie" v-model="newTitle">
+            <button @click="addItem">Dodaj</button>
         </div>
         <TodoItem
             :key="todo.id"
@@ -51,7 +50,7 @@ export default {
             console.log(this.newTitle)
             var data = {
                 title: this.newTitle,
-                description: this.newDescription
+                description: ''
             };
             TodoDataServices.create(data)
                 .then(res => {

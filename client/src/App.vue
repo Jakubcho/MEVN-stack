@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <h1>Todo App</h1>
-    <TodoApp />
-  </div>
+  <main>
+    <section class="glass">
+      <h1>Todo App</h1>
+      <TodoApp />
+    </section>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+  </main>
 </template>
 
 <script>
@@ -14,3 +18,6 @@ export default {
   }
 }
 </script>
+<style>
+   @import './assets/app.css';
+</style>

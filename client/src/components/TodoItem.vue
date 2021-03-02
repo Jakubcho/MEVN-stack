@@ -2,10 +2,9 @@
     <div
     class="item"
     v-bind:class="{done: todo.done}">
-        <h2>{{todo.title}}</h2>
-        <p>{{todo.description}}</p>
-        <button v-if="!todo.done" @click="removeItem">Done</button>
-        <button v-if="!todo.done===false" @click="deleteItem">Remove from list</button>
+        <h3>{{todo.title}}</h3>
+        <button v-if="!todo.done" @click="removeItem">Zrobione</button>
+        <button v-if="!todo.done===false" @click="deleteItem">Usuń z listy</button>
     </div>
 </template>
 

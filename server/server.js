@@ -5,8 +5,10 @@ const path = require('path');
 const serveStatic = require('serve-static');
 
 const app = express();
-
-app.use(cors());
+const corsOption = {
+    origin: 'https://todo-jch.herokuapp.com/'
+}
+app.use(cors(corsOption));
 app.use(bodyParser.json())
 
 const db = require("./app/models");
@@ -23,7 +25,7 @@ db.mongoose
         process.exit()
     })
 
-app.use(serveStatic(__dirname + "/dist"));
+//app.use(serveStatic(__dirname + "/dist"));
 
 require("./app/routes/routes.js")(app);
 
