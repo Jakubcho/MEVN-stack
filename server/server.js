@@ -5,9 +5,7 @@ const path = require('path');
 const serveStatic = require('serve-static');
 
 const app = express();
-var corsOptions = {
-    origin: 'http://localhost:8000'
-}
+
 app.use(cors());
 app.use(bodyParser.json())
 
