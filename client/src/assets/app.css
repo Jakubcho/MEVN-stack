@@ -10,6 +10,7 @@ main {
    align-items: center;
    justify-content: center;
 }
+
 .glass {
     background: white;
     min-height: 80vh;
@@ -103,4 +104,12 @@ button:active, button:focus {
 }
 .done h3{
     text-decoration: line-through;
+}
+@media (max-width: 800px) {
+    .glass {
+        width: 90%;
+    }
+    .addTodo input {
+        width: 100%;
+    }
 }
