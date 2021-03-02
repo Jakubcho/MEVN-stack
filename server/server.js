@@ -8,7 +8,7 @@ const app = express();
 const corsOption = {
     origin: 'http://localhost:8000/api/todos'
 }
-app.use(cors(corsOption));
+app.use(cors());
 app.use(bodyParser.json())
 
 const db = require("./app/models");
