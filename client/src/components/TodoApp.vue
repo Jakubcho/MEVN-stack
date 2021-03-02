@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="item">
-            <input type="text" placeholder="text" v-model="newTitle">
-            <input type="text" placeholder="text" v-model="newDescription">
+            <input type="text" placeholder="todo" v-model="newTitle">
+            <input type="text" placeholder="description todo" v-model="newDescription">
             <button @click="addItem">Add item</button>
         </div>
         <TodoItem
@@ -61,12 +61,7 @@ export default {
                 })
                 .catch(e => {
                     console.log(e)
-                })
-            /*this.todos.push({
-                title:this.newItem,
-                done: false,
-                id: Math.random()}),*/
-            
+                })          
             this.newItem = ''
         },
         removeItem(id){
@@ -82,8 +77,6 @@ export default {
                 .catch(e => {
                     console.log(e)
                 })
-            /*const index = this.todos.findIndex(el => el.id === id)
-            this.todos[index].done = true*/
         },
         deleteItem(id){
             TodoDataServices.delete(id)

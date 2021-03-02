@@ -1,0 +1,19 @@
+{
+  "name": "mevn-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "cd server && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakubcho/MEVN-stack.git"
+  },
+  "author": "JakubCho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jakubcho/MEVN-stack/issues"
+  },
+  "homepage": "https://github.com/Jakubcho/MEVN-stack#readme"
+}

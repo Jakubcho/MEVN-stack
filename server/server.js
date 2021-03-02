@@ -1,12 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path');
+const serveStatic = require('serve-static');
 
 const app = express();
 var corsOptions = {
-    origin: 'http://localhost:8080'
+    origin: 'http://localhost:8000'
 }
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(bodyParser.json())
 
 const db = require("./app/models");
@@ -23,9 +25,7 @@ db.mongoose
         process.exit()
     })
 
-app.get('/', (req,res) => {
-    res.json({message: "Test"})
-})
+app.use(serveStatic(__dirname + "/dist"));
 
 require("./app/routes/routes.js")(app);
 

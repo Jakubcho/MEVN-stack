@@ -1,7 +1,7 @@
 module.exports = app => {
     const todos = require("../controllers/todo.controller.js");
-
-    var router = require("express").Router();
+    var express = require("express");
+    var router = express();
 
     router.get("/", todos.findAll);
     router.post("/", todos.create);
