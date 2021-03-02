@@ -6,7 +6,7 @@ const serveStatic = require('serve-static');
 
 const app = express();
 const corsOption = {
-    origin: 'https://todo-jch.herokuapp.com/'
+    origin: 'http://localhost:8000/api/todos'
 }
 app.use(cors(corsOption));
 app.use(bodyParser.json())
@@ -33,3 +33,4 @@ const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server is runing on Port ${PORT}`)
 })
+//
