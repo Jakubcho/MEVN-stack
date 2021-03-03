@@ -39,8 +39,7 @@ export default {
         retriveTodos(){
             TodoDataServices.getAll()
                 .then(response => {
-                    this.todos = response.data;
-                    console.log(response.data)
+                    this.todos = response.data.reverse();
                 })
                 .catch(e => {
                     console.log(e)
@@ -55,7 +54,6 @@ export default {
             TodoDataServices.create(data)
                 .then(res => {
                     this.todo.id = res.data.id;
-                    console.log(res.data);
                     this.retriveTodos();
                 })
                 .catch(e => {
