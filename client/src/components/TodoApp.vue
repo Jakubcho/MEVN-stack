@@ -61,7 +61,7 @@ export default {
                 .catch(e => {
                     console.log(e)
                 })          
-            this.newItem = ''
+            this.newTitle = ''
         },
         removeItem(id){
             var data = {
