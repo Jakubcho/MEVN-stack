@@ -1,14 +1,14 @@
 <template>
     <div>
-        <div class="addTodo">
-            <input type="text" placeholder="Zadnie" v-model="newTitle">
-            <button @click="addItem">Dodaj</button>
+        <div class="header">
+            <input class="header__input" @keyup.enter="addItem" type="text" placeholder="nowa lista" v-model="newTitle"/>
+            <button class="btn" @click="addItem">Dodaj liste</button>
         </div>
         <TodoItem
             :key="todo.id"
             v-for="todo in todos"
             :todo="todo"
-            @removeClicked="removeItem"
+            @updateClicked="updateItem"
             @deleteClicked="deleteItem"
         />
     </div>
@@ -32,7 +32,7 @@ export default {
             },
             todos: [],
             newTitle: '',
-            newDescription: ''
+            listEle: [],
         }
     },
     methods: {
@@ -46,34 +46,40 @@ export default {
                 })
         },
         addItem(){
-            console.log(this.newTitle)
-            var data = {
-                title: this.newTitle,
-                description: ''
-            };
-            TodoDataServices.create(data)
-                .then(res => {
-                    this.todo.id = res.data.id;
-                    this.retriveTodos();
-                })
-                .catch(e => {
-                    console.log(e)
-                })          
-            this.newTitle = ''
-        },
-        removeItem(id){
-            var data = {
-                done: true
+            if(this.newTitle!==''){ 
+                var data = {
+                    title: this.newTitle,
+                    description: ""
+                };
+                TodoDataServices.create(data)
+                    .then(res => {
+                        this.todo.id = res.data.id;
+                        this.retriveTodos();
+                    })
+                    .catch(e => {
+                        console.log(e)
+                    })          
+                this.newTitle = ''
             }
-            console.log(data)
-            TodoDataServices.update(id, data)
-                .then(response => {
-                    console.log(response.data)
+        },
+        async updateItem(id, listElements){
+            try {
+                    let res = await TodoDataServices.get(id);
+                    let element = res.data;
+                    let elDesc = element.description;
+                    this.listEle = [...elDesc, ...listElements]
+
+                    var data = {
+                        done: true,
+                        description: this.listEle
+                    }
+
+                    await TodoDataServices.update(id, data);
                     this.retriveTodos();
-                })
-                .catch(e => {
+
+                } catch(e){
                     console.log(e)
-                })
+                }
         },
         deleteItem(id){
             TodoDataServices.delete(id)

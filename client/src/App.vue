@@ -1,7 +1,7 @@
 <template>
   <main>
     <section class="glass">
-      <h1>Todo App</h1>
+      <h1>Lista zadań</h1>
       <TodoApp />
     </section>
     <div class="circle1"></div>

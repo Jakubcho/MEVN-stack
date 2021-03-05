@@ -9,8 +9,8 @@ main {
    display: flex; 
    align-items: center;
    justify-content: center;
+   overflow: hidden;
 }
-
 .glass {
     background: white;
     min-height: 80vh;
@@ -34,50 +34,59 @@ main {
     right: 15%;
 }
 .circle2 {
-bottom: 5%;
-left: 10%;
+    bottom: 5%;
+    left: 10%;
 }
-h1, h3 {
+
+h1, h3, p {
     color: #426696;
     font-weight: 600;
-    font-size: 3rem;
     opacity: 0.8;
     display:flex;
     justify-content: center;
-    margin-top: 25px;
+    margin: 1rem 0 1rem 0;
+}
+h1 {
+    font-size: 3rem;
 }
 h2 {
     color: #658ec6;
     font-weight: 500;
 }
-h1 {
-    font-size: 3rem;
-}
 h3 {
     font-size: 1.5rem;
 }
-.addTodo {
-    margin: 0 auto;
+p { 
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+.header, .item {
     display: flex;
-    align-items: center;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(to right top,  #65dfc9b2, #6cdaebec);
-    padding: 2rem;
     border-radius: 2rem;
     margin: 15px 10px;
 }
-.addTodo input {
+input {
     background: linear-gradient(
         to right bottom,
          rgba(255,255,255, 0.7),
          rgba(255,255,255,0.3));
-         border:none;
-         width: 50%;
-         padding: 0.5rem 2.5rem;
-         border-radius: 5rem;
-         outline-color: #6cdbeb;
+    border:none;
+    width: 50%;
+    padding: 0.5rem 2.5rem;
+    border-radius: 5rem;
+    outline-color: #6cdbeb;
+    opacity: 0.8;
+    display:flex;
+    justify-content: center;
+    margin: 1rem 1rem 0.5rem 1rem;
+    text-align: justify;
+        
 }
-button {
+.btn {
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     background: white;
@@ -87,29 +96,63 @@ button {
          rgba(255,255,255,0.3));
         border: none;
     color: #426696;
-    margin: 1rem 0;
+    margin: 0.5rem 0 1rem 0;
     width: 50%;
 }
-button:active, button:focus {
+.btn:active, .btn:focus {
     outline-color: #6cdbeb;
 }
-.item {
+.item__list__edit{
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+.item__list__done {
+    text-decoration: line-through #426696 2.5px;
+}
+.item__list {
+    width: 100%;
+    display: flex;
+    visibility: hidden;
+    height: 0;
+    
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+.item__list_show {
+    visibility: visible;
+    height: 100%;
+}
+.item__list_edit_show {
+    visibility: visible;
     background: linear-gradient(to right top,  #65dfc9b2, #6cdaebec);
+    padding: 2rem;
     border-radius: 2rem;
     margin: 15px 10px;
-}
-.done h3{
-    text-decoration: line-through;
+    width: 90%;
+    height: 100%;
 }
 @media (max-width: 800px) {
     .glass {
         width: 90%;
     }
-    .addTodo input {
-        width: 100%;
+    input {
+        width: 90%;
+        margin-bottom: 1rem;
+        padding: 0.8rem 2.5rem;
     }
+    .btn {
+        margin: 0 0 0.8rem 0;
+    }
+    h3 {
+        padding: 0.8rem 1rem;
+        margin-top: 0;
+    }
+
 }
