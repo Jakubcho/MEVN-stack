@@ -8,6 +8,7 @@ const app = express();
 const corsOption = {
     origin: 'https://todo-jch.herokuapp.com/'
 }
+//http://localhost:8080
 app.use(cors(corsOption));
 
 app.use(bodyParser.json())

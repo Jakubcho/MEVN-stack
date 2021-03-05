@@ -30,7 +30,7 @@ exports.create = (req,res) => {
     const todo = new Todo({
         title: req.body.title,
         description: req.body.description,
-        done: req.body.done ? req.body.done : false
+        done: req.body.done ? req.body.done : false,
     })
 
     todo
